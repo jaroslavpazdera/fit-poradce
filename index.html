@@ -12,21 +12,21 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f5f7fa 100%);
             min-height: 100vh;
         }
 
         header {
-            background: rgba(0, 0, 0, 0.7);
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF006E 50%, #6C63FF 100%);
             color: white;
             padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
         }
 
         header nav {
@@ -40,8 +40,9 @@
 
         header .logo {
             font-size: 28px;
-            font-weight: bold;
-            color: #667eea;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -1px;
         }
 
         header nav ul {
@@ -53,165 +54,358 @@
         header nav a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: opacity 0.3s;
+            font-weight: 600;
         }
 
         header nav a:hover {
-            color: #667eea;
+            opacity: 0.8;
         }
 
         .hero {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 20px;
+            padding: 100px 20px;
             text-align: center;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF006E 50%, #6C63FF 100%);
             color: white;
+            border-radius: 0 0 30px 30px;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 56px;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 900;
+            letter-spacing: -2px;
         }
 
         .hero p {
             font-size: 20px;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 500;
+            opacity: 0.95;
         }
 
         .cta-button {
             display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 15px 40px;
+            background: white;
+            color: #FF6B6B;
+            padding: 16px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 18px;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
 
         .cta-button:hover {
-            background: #764ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
         .features {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 0 20px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            padding: 70px 50px;
         }
 
         .features h2 {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: #333;
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+            font-weight: 900;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
         }
 
         .feature-card {
             text-align: center;
-            padding: 30px;
-            border-radius: 15px;
-            background: #f8f9fa;
-            transition: transform 0.3s, box-shadow 0.3s;
+            padding: 40px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #fff0f5 100%);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
+        .feature-card:nth-child(1) { background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 100%); }
+        .feature-card:nth-child(2) { background: linear-gradient(135deg, #E5F3FF 0%, #F0E5FF 100%); }
+        .feature-card:nth-child(3) { background: linear-gradient(135deg, #E5FFE8 0%, #F0FFF5 100%); }
+        .feature-card:nth-child(4) { background: linear-gradient(135deg, #FFF5E5 0%, #FFEFE5 100%); }
+        .feature-card:nth-child(5) { background: linear-gradient(135deg, #F5E5FF 0%, #FFECF9 100%); }
+        .feature-card:nth-child(6) { background: linear-gradient(135deg, #E5F7FF 0%, #E5FFFC 100%); }
+
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
         }
 
         .feature-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
+            font-size: 56px;
+            margin-bottom: 20px;
         }
 
         .feature-card h3 {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 15px;
-            color: #667eea;
+            color: #FF6B6B;
+            font-weight: 800;
         }
 
         .feature-card p {
             color: #666;
             font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .pricing {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            padding: 70px 50px;
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+            font-weight: 900;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .pricing-card {
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 3px solid #e0e0e0;
+            position: relative;
+        }
+
+        .pricing-card:nth-child(1) {
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 100%);
+            border-color: #FF6B6B;
+        }
+
+        .pricing-card:nth-child(2) {
+            background: linear-gradient(135deg, #E5F3FF 0%, #F0E5FF 100%);
+            border-color: #6C63FF;
+            transform: scale(1.05);
+        }
+
+        .pricing-card:nth-child(3) {
+            background: linear-gradient(135deg, #E5FFE8 0%, #F0FFF5 100%);
+            border-color: #00D4AA;
+        }
+
+        .pricing-card:nth-child(2) .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF006E 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .pricing-card:nth-child(2):hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-card h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 20px 0;
+            color: #1a1a1a;
+        }
+
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 900;
+            color: #FF6B6B;
+            margin: 20px 0;
+        }
+
+        .pricing-card:nth-child(2) .price {
+            color: #6C63FF;
+        }
+
+        .pricing-card:nth-child(3) .price {
+            color: #00D4AA;
+        }
+
+        .pricing-card .period {
+            color: #999;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            text-align: left;
+            margin: 30px 0;
+            font-size: 15px;
+            line-height: 2;
+            color: #666;
+        }
+
+        .pricing-features li {
+            list-style: none;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00D4AA;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .pricing-button {
+            display: inline-block;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+            border: 2px solid #FF6B6B;
+            color: #FF6B6B;
+            background: white;
+            cursor: pointer;
+        }
+
+        .pricing-card:nth-child(2) .pricing-button {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF006E 100%);
+            color: white;
+            border: none;
+        }
+
+        .pricing-card:nth-child(3) .pricing-button {
+            border-color: #00D4AA;
+            color: #00D4AA;
+        }
+
+        .pricing-button:hover {
+            transform: translateY(-3px);
         }
 
         .profile-section {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 0 20px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            padding: 70px 50px;
         }
 
         .profile-section h2 {
-            font-size: 36px;
+            font-size: 42px;
             margin-bottom: 30px;
-            color: #333;
+            color: #1a1a1a;
+            font-weight: 900;
         }
 
         .profile-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 30px;
             margin-bottom: 30px;
         }
 
         .profile-card {
-            background: #f0f4ff;
-            padding: 25px;
+            background: linear-gradient(135deg, #FFE5E5 0%, #FFF0F5 100%);
+            padding: 30px;
             border-radius: 15px;
-            border-left: 5px solid #667eea;
+            border-left: 5px solid #FF6B6B;
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:nth-child(even) {
+            background: linear-gradient(135deg, #E5F3FF 0%, #F0E5FF 100%);
+            border-left-color: #6C63FF;
+        }
+
+        .profile-card:nth-child(3n) {
+            background: linear-gradient(135deg, #E5FFE8 0%, #F0FFF5 100%);
+            border-left-color: #00D4AA;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
         }
 
         .profile-card strong {
             display: block;
-            color: #667eea;
+            color: #FF6B6B;
             margin-bottom: 10px;
-            font-size: 14px;
+            font-size: 12px;
             text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .profile-card:nth-child(even) strong {
+            color: #6C63FF;
+        }
+
+        .profile-card:nth-child(3n) strong {
+            color: #00D4AA;
         }
 
         .profile-card span {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
+            font-size: 28px;
+            font-weight: 900;
+            color: #1a1a1a;
         }
 
         .how-to {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 0 20px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            padding: 70px 50px;
         }
 
         .how-to h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: #333;
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+            font-weight: 900;
         }
 
         .steps {
@@ -221,93 +415,133 @@
         }
 
         .step {
-            padding: 30px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px;
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF006E 50%, #6C63FF 100%);
             color: white;
-            border-radius: 15px;
+            border-radius: 20px;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step:nth-child(2) {
+            background: linear-gradient(135deg, #6C63FF 0%, #00D4AA 100%);
+        }
+
+        .step:nth-child(3) {
+            background: linear-gradient(135deg, #00D4AA 0%, #FFE66D 100%);
+        }
+
+        .step:nth-child(4) {
+            background: linear-gradient(135deg, #FFE66D 0%, #FF6B6B 100%);
+        }
+
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
         }
 
         .step-number {
-            font-size: 48px;
-            font-weight: bold;
+            font-size: 56px;
+            font-weight: 900;
             margin-bottom: 15px;
-            opacity: 0.8;
+            opacity: 0.9;
         }
 
         .step h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 800;
         }
 
         .step p {
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 1.6;
+            opacity: 0.95;
         }
 
         .examples {
             max-width: 1200px;
-            margin: 60px auto;
+            margin: 80px auto;
             padding: 0 20px;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            padding: 70px 50px;
         }
 
         .examples h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: #333;
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: #1a1a1a;
+            font-weight: 900;
         }
 
         .example {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f4ff 100%);
+            padding: 30px;
+            border-radius: 15px;
             margin-bottom: 25px;
-            border-left: 4px solid #667eea;
+            border-left: 5px solid #6C63FF;
+            transition: all 0.3s ease;
+        }
+
+        .example:nth-child(odd) {
+            border-left-color: #FF6B6B;
+        }
+
+        .example:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateX(5px);
         }
 
         .example strong {
-            color: #667eea;
+            color: #6C63FF;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .example:nth-child(odd) strong {
+            color: #FF6B6B;
         }
 
         .example pre {
-            background: #fff;
-            padding: 15px;
-            border-radius: 5px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
             overflow-x: auto;
             font-size: 13px;
-            line-height: 1.5;
+            line-height: 1.6;
+            border: 1px solid #e0e0e0;
         }
 
         footer {
-            background: rgba(0, 0, 0, 0.9);
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             margin-top: 80px;
         }
 
         footer p {
             margin: 10px 0;
+            font-weight: 500;
         }
 
         footer a {
-            color: #667eea;
+            color: #FF6B6B;
             text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.3s;
         }
 
         footer a:hover {
-            text-decoration: underline;
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
 
             .hero p {
@@ -324,8 +558,16 @@
                 display: flex;
             }
 
-            .features h2, .profile-section h2, .how-to h2, .examples h2 {
-                font-size: 28px;
+            .features h2, .pricing h2, .profile-section h2, .how-to h2, .examples h2 {
+                font-size: 32px;
+            }
+
+            .pricing-card:nth-child(2) {
+                transform: scale(1);
+            }
+
+            .pricing-card:nth-child(2):hover {
+                transform: translateY(-10px);
             }
         }
     </style>
@@ -336,6 +578,7 @@
             <div class="logo">🏃 Fit Poradce</div>
             <ul>
                 <li><a href="#features">Funkce</a></li>
+                <li><a href="#pricing">Ceny</a></li>
                 <li><a href="#profile">O profilu</a></li>
                 <li><a href="#how-to">Jak používat</a></li>
                 <li><a href="#examples">Příklady</a></li>
@@ -381,6 +624,53 @@
                 <div class="feature-icon">🔒</div>
                 <h3>Soukromí</h3>
                 <p>Všechna data jsou ukládána lokálně na vašem počítači. Nic se neodesílá na server.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <h2>Cenový plán</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Základní</h3>
+                <div class="price">Zdarma</div>
+                <div class="period">Navždy</div>
+                <ul class="pricing-features">
+                    <li>Odhad kalorií</li>
+                    <li>Lokální ukládání dat</li>
+                    <li>Denní záznam</li>
+                    <li>Jednoduché doporučení</li>
+                </ul>
+                <button class="pricing-button">Začít nyní</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="badge">NEJPOPULÁRNĚJŠÍ</div>
+                <h3>Pro</h3>
+                <div class="price">199 Kč</div>
+                <div class="period">za měsíc</div>
+                <ul class="pricing-features">
+                    <li>Vše z Základního</li>
+                    <li>Pokročilé analýzy</li>
+                    <li>Zdravotní statistiky</li>
+                    <li>Personalizované tipy</li>
+                    <li>Prioritní podpora</li>
+                </ul>
+                <button class="pricing-button">Vyzkoušet zdarma</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Premium</h3>
+                <div class="price">499 Kč</div>
+                <div class="period">za měsíc</div>
+                <ul class="pricing-features">
+                    <li>Vše z Plochu Pro</li>
+                    <li>AI coaching</li>
+                    <li>Propojení fitness trackerů</li>
+                    <li>Skupinové výzvy</li>
+                    <li>API přístup</li>
+                </ul>
+                <button class="pricing-button">Upgrade</button>
             </div>
         </div>
     </section>
