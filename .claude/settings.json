@@ -1,0 +1,21 @@
+{
+  "model_person": {
+    "age": 50,
+    "height_cm": 190,
+    "weight_kg": 105,
+    "gender": "male",
+    "activity_level": "sedentary"
+  },
+  "daily_calorie_target": 2200,
+  "data_directory": "data",
+  "date_format": "YYYY-MM-DD",
+  "bmr_kcal": 1650,
+  "tdee_kcal": 2200,
+  "meal_distribution": {
+    "breakfast": 400,
+    "lunch": 600,
+    "snack": 200,
+    "dinner": 500,
+    "buffer": 500
+  }
+}
