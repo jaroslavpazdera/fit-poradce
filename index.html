@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Poradce - Inteligentní sledování kalorií</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 60px 40px;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .feature-card p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .profile-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 60px 40px;
+        }
+
+        .profile-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .profile-card {
+            background: #f0f4ff;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .profile-card strong {
+            display: block;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .profile-card span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .how-to {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 60px 40px;
+        }
+
+        .how-to h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .step {
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .examples {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 60px 40px;
+        }
+
+        .examples h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .example {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+        }
+
+        .example strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .example pre {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                gap: 10px;
+                display: none;
+            }
+
+            header nav ul.active {
+                display: flex;
+            }
+
+            .features h2, .profile-section h2, .how-to h2, .examples h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🏃 Fit Poradce</div>
+            <ul>
+                <li><a href="#features">Funkce</a></li>
+                <li><a href="#profile">O profilu</a></li>
+                <li><a href="#how-to">Jak používat</a></li>
+                <li><a href="#examples">Příklady</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Fit Poradce</h1>
+        <p>Inteligentní chatbot, který vám pomůže sledovat kalorií a optimalizovat svůj jídelníček</p>
+        <a href="#how-to" class="cta-button">Začít teď</a>
+    </section>
+
+    <section id="features" class="features">
+        <h2>Co vám Fit Poradce nabízí?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Odhad kalorií</h3>
+                <p>Jednoduše zadejte, co jste snědl/a, a agent vám odhadne kalorií na základě standardní databáze potravin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Automatický záznam</h3>
+                <p>Všechny vaše jídla se ukládají do denních souborů. Máte vždy přehled, co jste snědl/a.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🍽️</div>
+                <h3>Doporučení jídelníčku</h3>
+                <p>Na základě již snědených jídel dostanete konkrétní doporučení na zbývající část dne.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Denní cíl</h3>
+                <p>Aplikace sleduje váš cíl 2200 kcal za den a vždy vám řekne, kolik vám zbývá.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>Přirozený jazyk</h3>
+                <p>Komunikujte s agentem v přirozeném češtině. Žádné formuláře, žádné hesla.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>Soukromí</h3>
+                <p>Všechna data jsou ukládána lokálně na vašem počítači. Nic se neodesílá na server.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="profile" class="profile-section">
+        <h2>Modelový profil</h2>
+        <p style="margin-bottom: 30px; color: #666;">Aplikace je optimalizována pro následující profil osoby:</p>
+        <div class="profile-grid">
+            <div class="profile-card">
+                <strong>Věk</strong>
+                <span>50 let</span>
+            </div>
+            <div class="profile-card">
+                <strong>Pohlaví</strong>
+                <span>Muž</span>
+            </div>
+            <div class="profile-card">
+                <strong>Výška</strong>
+                <span>190 cm</span>
+            </div>
+            <div class="profile-card">
+                <strong>Váha</strong>
+                <span>105 kg</span>
+            </div>
+        </div>
+        <div class="profile-grid">
+            <div class="profile-card">
+                <strong>Zaměstnání</strong>
+                <span>Sedavé</span>
+            </div>
+            <div class="profile-card">
+                <strong>Cílová denní kalorie</strong>
+                <span>2200 kcal</span>
+            </div>
+            <div class="profile-card">
+                <strong>BMR</strong>
+                <span>1650 kcal</span>
+            </div>
+            <div class="profile-card">
+                <strong>TDEE</strong>
+                <span>2200 kcal</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-to" class="how-to">
+        <h2>Jak používat aplikaci</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Otevřete Claude Code</h3>
+                <p>Spusťte Claude Code a přejděte do tohoto projektového adresáře.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Vyzveďte skill "odhad-kalorii"</h3>
+                <p>Řekněte agentovi, co jste snědl/a. Agent odhad ní kalorií a uloží záznam.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Sledujte svůj pokrok</h3>
+                <p>Agent vám řekne, kolik kalorií zbývá do denního cíle 2200 kcal.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Vyzveďte "doporuceni-kalorii"</h3>
+                <p>Pokud potřebujete radu, požádejte agenta o návrh zbývajících jídel.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="examples" class="examples">
+        <h2>Příklady použití</h2>
+
+        <div class="example">
+            <strong>Příklad 1: Záznam jídla</strong>
+            <pre><strong>Uživatel:</strong> Právě jsem snědl jablko a kousek chleba se sádlem
+
+<strong>Agent:</strong> Zaznamenávám:
+  • Jablko: 95 kcal
+  • Chléb se sádlem: 200 kcal
+
+Celkem dnes: 295 kcal
+Zbývá ti: 1905 kcal na dnešek</pre>
+        </div>
+
+        <div class="example">
+            <strong>Příklad 2: Návrh jídelníčku</strong>
+            <pre><strong>Uživatel:</strong> Navrhni mi jídelníček na zbytek dne
+
+<strong>Agent:</strong> Čtu tvůj záznam z dnešku. Dosavadní příjem: 295 kcal
+Zbývající kapacita: 1905 kcal
+
+DOPORUČUJI:
+  🍽️ Oběd (12:00): Kuřecí prso s rýží (600 kcal)
+  🍎 Svačina (15:00): Jogurt s ovocem (200 kcal)
+  🍽️ Večeře (18:30): Losos s brambory (500 kcal)
+  ☕ Ostatní (čaj, nápoje): 605 kcal
+
+Celkem s návrhem: 2200 kcal</pre>
+        </div>
+
+        <div class="example">
+            <strong>Příklad 3: Upřesnění porce</strong>
+            <pre><strong>Uživatel:</strong> Obědval jsem kuřecí plátek
+
+<strong>Agent:</strong> Kolik to bylo? Je to plátek z jednoho kuřecího prsa, nebo menší kousek?
+A bylo to vařené, pečené, nebo smažené?
+
+<strong>Uživatel:</strong> Jedno kuřecí prso, smažené se smaženou rýží. Malá porce.
+
+<strong>Agent:</strong> Zaznamenávám: kuřecí prso (smažené) se smaženou rýží (500 kcal)
+Celkem dnes: 795 kcal
+Zbývá ti: 1405 kcal na dnešek</pre>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>Fit Poradce</strong> - Inteligentní sledování kalorií</p>
+        <p>Vytvořeno s Claude Code | Data jsou uložena lokálně na vašem počítači</p>
+        <p><a href="https://github.com">Publikováno na GitHub Pages</a></p>
+    </footer>
+</body>
+</html>
